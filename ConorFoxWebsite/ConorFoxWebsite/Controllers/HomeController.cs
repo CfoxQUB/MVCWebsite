@@ -17,5 +17,15 @@ namespace ConorFoxWebsite.Controllers
         {
             return View("About");
         }
+
+        public ActionResult Timetable()
+        {
+            return View("Timetable");
+        }
+
+        public ActionResult Summary()
+        {
+            return View("Summary");
+        }
     }
 }

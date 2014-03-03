@@ -64,4 +64,21 @@ namespace ConorFoxWebsite.Models
         [System.Web.Mvc.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class UserModel
+    {
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
+        public string Forename { get; set; }
+
+        [Required]
+        public string Surname { get; set; }
+
+        [Required]
+        public string Role { get; set; }
+
+    }
 }

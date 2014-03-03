@@ -9,15 +9,19 @@
     <div class="page">
         <div id="header">
             <div id="title">
-                <h1>My MVC Application</h1>
+                <h1>Timetabling Web Tool</h1>
             </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div id="menucontainer">
+            <br/>
+           <div id="menucontainer">
                 <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Log In", "LogOn", "Account")</li>
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
+
+                    <li>@Html.ActionLink("Today", "Summary", "Home")</li>
+
+                    <li>@Html.ActionLink("My Timetable", "Timetable", "Home")</li>
+
                 </ul>
             </div>
         </div>
