@@ -6,21 +6,23 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using ConorFoxWebsite.Models;
+using ConorFoxWebsite.WebServiceReference;
 
 namespace ConorFoxWebsite.Controllers
 {
     public class AccountController : Controller
     {
-
-        //
-        // GET: /Account/LogOn
-
+        private WebsiteServiceClient ws = new WebsiteServiceClient();
         public ActionResult LogOn()
         {
             return View();
         }
 
-        //
+        public ActionResult Administration()
+        {
+            return View();
+        }
+        
         // POST: /Account/LogOn
 
         [HttpPost]
@@ -28,7 +30,7 @@ namespace ConorFoxWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-               if (Membership.ValidateUser(model.UserName, model.Password))
+                if (ws.StudentLogin(model.UserName, model.Password)!= null)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -38,7 +40,7 @@ namespace ConorFoxWebsite.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Summary", "Home");
                     }
                 }
                 else
@@ -75,7 +77,7 @@ namespace ConorFoxWebsite.Controllers
         [HttpPost]
         public ActionResult Register(RegisterNewStaffMember model)
         {
-           if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -83,7 +85,7 @@ namespace ConorFoxWebsite.Controllers
             return View(model);
         }
 
-       
+
         // GET: /Account/ChangePassword
 
         [Authorize]

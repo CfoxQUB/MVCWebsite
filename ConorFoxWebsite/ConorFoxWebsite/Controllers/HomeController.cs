@@ -8,6 +8,11 @@ namespace ConorFoxWebsite.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult SplashScreen()
+        {
+            return View("SplashScreen");
+        }
+
         public ActionResult Index()
         {
            return View("Index");

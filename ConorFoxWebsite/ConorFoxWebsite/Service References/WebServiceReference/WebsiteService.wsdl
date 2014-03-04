@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WebsiteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49185/WebsiteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49185/WebsiteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49185/WebsiteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWebsiteService_StudentLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:StudentLogin" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StudentLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StudentLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffLogin" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_EventSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:EventSummary" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_EventSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EventSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StudentsEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:StudentsEvents" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StudentsEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StudentsEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffEvents" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffEventsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWebsiteService">
+    <wsdl:operation name="StudentLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StudentLogin" message="tns:IWebsiteService_StudentLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StudentLoginResponse" message="tns:IWebsiteService_StudentLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StaffLogin" message="tns:IWebsiteService_StaffLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StaffLoginResponse" message="tns:IWebsiteService_StaffLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EventSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/EventSummary" message="tns:IWebsiteService_EventSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/EventSummaryResponse" message="tns:IWebsiteService_EventSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentsEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StudentsEvents" message="tns:IWebsiteService_StudentsEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StudentsEventsResponse" message="tns:IWebsiteService_StudentsEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StaffEvents" message="tns:IWebsiteService_StaffEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StaffEventsResponse" message="tns:IWebsiteService_StaffEvents_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWebsiteService" type="tns:IWebsiteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StudentLogin">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StudentLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffLogin">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StaffLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EventSummary">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/EventSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentsEvents">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StudentsEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffEvents">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StaffEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebsiteService">
+    <wsdl:port name="BasicHttpBinding_IWebsiteService" binding="tns:BasicHttpBinding_IWebsiteService">
+      <soap:address location="http://localhost:49185/WebsiteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

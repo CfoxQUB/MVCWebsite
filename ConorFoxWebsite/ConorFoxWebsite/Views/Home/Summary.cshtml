@@ -1,11 +1,15 @@
 ﻿@*@model ConorFoxWebsite.Models.UserModel*@
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Timetable Summary";
-}
-
-
+ }
+    <script type="text/javascript">
+        $("#loginMenu").removeClass("active");
+        $("#SummaryMenu").addClass("active");
+    </script>
+<br />
 <h2>User Summary</h2>
-<body>
+<body class="container">
     <div id="UserSummary">
         <label>Forname</label>
         <hr/>
@@ -17,6 +21,4 @@
 
 
 </body>
-<p>
-     
-</p>
+
