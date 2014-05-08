@@ -4,6 +4,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Course" type="xs:int" />
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
       <xs:element minOccurs="0" name="LastActivity" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StudentEmail" nillable="true" type="xs:string" />
@@ -17,9 +18,10 @@
   <xs:element name="Student" nillable="true" type="tns:Student" />
   <xs:complexType name="Staff">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Course" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="LastActivity" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Course" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" type="xs:int" />
+      <xs:element minOccurs="0" name="LastActivity" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StaffEmail" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StaffForename" nillable="true" type="xs:string" />
@@ -32,22 +34,21 @@
   <xs:complexType name="Event">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalNotes" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Attendants" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Course" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Course" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
       <xs:element minOccurs="0" name="EventDescription" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="EventTitle" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EventType" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="LastDateEdited" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="LastUserEdited" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Repeats" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventType" type="xs:int" />
+      <xs:element minOccurs="0" name="LastDateEdited" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUserEdited" type="xs:int" />
+      <xs:element minOccurs="0" name="Module" type="xs:int" />
+      <xs:element minOccurs="0" name="Repeats" type="xs:int" />
+      <xs:element minOccurs="0" name="Room" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Time" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Event" nillable="true" type="tns:Event" />
@@ -57,4 +58,34 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
+  <xs:complexType name="ArrayOfStudentInvite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StudentInvite" nillable="true" type="tns:StudentInvite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStudentInvite" nillable="true" type="tns:ArrayOfStudentInvite" />
+  <xs:complexType name="StudentInvite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attending" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentId" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentInviteId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StudentInvite" nillable="true" type="tns:StudentInvite" />
+  <xs:complexType name="ArrayOfStaffInvite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaffInvite" nillable="true" type="tns:StaffInvite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaffInvite" nillable="true" type="tns:ArrayOfStaffInvite" />
+  <xs:complexType name="StaffInvite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attending" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="StaffId" type="xs:int" />
+      <xs:element minOccurs="0" name="StaffInviteId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaffInvite" nillable="true" type="tns:StaffInvite" />
 </xs:schema>

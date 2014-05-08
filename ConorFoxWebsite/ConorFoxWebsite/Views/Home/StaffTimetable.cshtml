@@ -1,6 +1,6 @@
 ﻿@model ConorFoxWebsite.Models.UserModel
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_StaffLayout.cshtml";
     ViewBag.Title = "My Timetable";
     <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
     <link href="@Url.Content("~/Content/fullcalendar.css")" rel="stylesheet" type="text/css" />
@@ -9,22 +9,23 @@
     <script type="text/javascript">
         var eventsList = [];
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             $("li").removeClass("active");
             $("#timetableMenu").addClass("active");
 
-             $.ajax({
+            $.ajax({
                 type: 'POST',
-                url: '/Student/ReturnTimetableJsonResult',
+                url: '/Staff/ReturnTimetableJsonResult',
                 dataType: 'json', //json data type
-                data: { user : '@Model.Id' },
-                success: function(data) {
-                    $.each(data, function(i, item) {
+                data: { user: '@Model.Id' },
+                success: function (data) {
+                    $.each(data, function (i, item) {
                         eventsList.push({
                             title: item.Title,
                             start: item.Start,
                             end: item.End,
+                            description:"hola",
                             allDay: false
                         });
                     });
@@ -33,7 +34,7 @@
                         events: eventsList
                     });
                 }
-            });
+             });
         });
     </script>
 }

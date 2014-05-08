@@ -29,6 +29,9 @@ namespace ConorFoxWebsite.WebServiceReference {
         private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime LastActivityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -84,6 +87,19 @@ namespace ConorFoxWebsite.WebServiceReference {
                 if ((this.CreateDateField.Equals(value) != true)) {
                     this.CreateDateField = value;
                     this.RaisePropertyChanged("CreateDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
                 }
             }
         }
@@ -212,13 +228,16 @@ namespace ConorFoxWebsite.WebServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CourseField;
+        private int CourseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> LastActivityField;
+        private int CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastActivityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -249,7 +268,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Course {
+        public int Course {
             get {
                 return this.CourseField;
             }
@@ -262,7 +281,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -275,7 +294,20 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastActivity {
+        public int Creator {
+            get {
+                return this.CreatorField;
+            }
+            set {
+                if ((this.CreatorField.Equals(value) != true)) {
+                    this.CreatorField = value;
+                    this.RaisePropertyChanged("Creator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastActivity {
             get {
                 return this.LastActivityField;
             }
@@ -388,16 +420,13 @@ namespace ConorFoxWebsite.WebServiceReference {
         private string AdditionalNotesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> AttendantsField;
+        private int CourseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CourseField;
+        private System.DateTime CreateDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreateDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DurationField;
+        private int DurationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EventDescriptionField;
@@ -409,31 +438,31 @@ namespace ConorFoxWebsite.WebServiceReference {
         private string EventTitleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> EventTypeField;
+        private int EventTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> LastDateEditedField;
+        private System.DateTime LastDateEditedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> LastUserEditedField;
+        private int LastUserEditedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ModuleField;
+        private int ModuleField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RepeatsField;
+        private int RepeatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RoomField;
+        private int RoomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> StartDateField;
+        private System.DateTime StartDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> TimeField;
+        private int TimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -459,20 +488,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Attendants {
-            get {
-                return this.AttendantsField;
-            }
-            set {
-                if ((this.AttendantsField.Equals(value) != true)) {
-                    this.AttendantsField = value;
-                    this.RaisePropertyChanged("Attendants");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Course {
+        public int Course {
             get {
                 return this.CourseField;
             }
@@ -485,7 +501,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.CreateDateField;
             }
@@ -498,7 +514,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Duration {
+        public int Duration {
             get {
                 return this.DurationField;
             }
@@ -550,7 +566,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> EventType {
+        public int EventType {
             get {
                 return this.EventTypeField;
             }
@@ -563,7 +579,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LastDateEdited {
+        public System.DateTime LastDateEdited {
             get {
                 return this.LastDateEditedField;
             }
@@ -576,7 +592,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> LastUserEdited {
+        public int LastUserEdited {
             get {
                 return this.LastUserEditedField;
             }
@@ -589,7 +605,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Module {
+        public int Module {
             get {
                 return this.ModuleField;
             }
@@ -602,7 +618,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Repeats {
+        public int Repeats {
             get {
                 return this.RepeatsField;
             }
@@ -615,7 +631,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Room {
+        public int Room {
             get {
                 return this.RoomField;
             }
@@ -628,7 +644,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> StartDate {
+        public System.DateTime StartDate {
             get {
                 return this.StartDateField;
             }
@@ -654,7 +670,7 @@ namespace ConorFoxWebsite.WebServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Time {
+        public int Time {
             get {
                 return this.TimeField;
             }
@@ -662,6 +678,192 @@ namespace ConorFoxWebsite.WebServiceReference {
                 if ((this.TimeField.Equals(value) != true)) {
                     this.TimeField = value;
                     this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StudentInvite", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class StudentInvite : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AttendingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StudentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StudentInviteIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Attending {
+            get {
+                return this.AttendingField;
+            }
+            set {
+                if ((this.AttendingField.Equals(value) != true)) {
+                    this.AttendingField = value;
+                    this.RaisePropertyChanged("Attending");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StudentId {
+            get {
+                return this.StudentIdField;
+            }
+            set {
+                if ((this.StudentIdField.Equals(value) != true)) {
+                    this.StudentIdField = value;
+                    this.RaisePropertyChanged("StudentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StudentInviteId {
+            get {
+                return this.StudentInviteIdField;
+            }
+            set {
+                if ((this.StudentInviteIdField.Equals(value) != true)) {
+                    this.StudentInviteIdField = value;
+                    this.RaisePropertyChanged("StudentInviteId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StaffInvite", Namespace="http://schemas.datacontract.org/2004/07/ConorFoxProject")]
+    [System.SerializableAttribute()]
+    public partial class StaffInvite : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AttendingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StaffIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StaffInviteIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Attending {
+            get {
+                return this.AttendingField;
+            }
+            set {
+                if ((this.AttendingField.Equals(value) != true)) {
+                    this.AttendingField = value;
+                    this.RaisePropertyChanged("Attending");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StaffId {
+            get {
+                return this.StaffIdField;
+            }
+            set {
+                if ((this.StaffIdField.Equals(value) != true)) {
+                    this.StaffIdField = value;
+                    this.RaisePropertyChanged("StaffId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StaffInviteId {
+            get {
+                return this.StaffInviteIdField;
+            }
+            set {
+                if ((this.StaffInviteIdField.Equals(value) != true)) {
+                    this.StaffInviteIdField = value;
+                    this.RaisePropertyChanged("StaffInviteId");
                 }
             }
         }
@@ -698,17 +900,47 @@ namespace ConorFoxWebsite.WebServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/EventSummary", ReplyAction="http://tempuri.org/IWebsiteService/EventSummaryResponse")]
         System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event> EventSummaryAsync(int userId, int userType, int eventId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StudentsEvents", ReplyAction="http://tempuri.org/IWebsiteService/StudentsEventsResponse")]
-        ConorFoxWebsite.WebServiceReference.Event[] StudentsEvents(int userId, int userType);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ReturnEventDetail", ReplyAction="http://tempuri.org/IWebsiteService/ReturnEventDetailResponse")]
+        ConorFoxWebsite.WebServiceReference.Event ReturnEventDetail(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ReturnEventDetail", ReplyAction="http://tempuri.org/IWebsiteService/ReturnEventDetailResponse")]
+        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event> ReturnEventDetailAsync(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StudentsEvents", ReplyAction="http://tempuri.org/IWebsiteService/StudentsEventsResponse")]
-        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StudentsEventsAsync(int userId, int userType);
+        ConorFoxWebsite.WebServiceReference.Event[] StudentsEvents(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StudentsEvents", ReplyAction="http://tempuri.org/IWebsiteService/StudentsEventsResponse")]
+        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StudentsEventsAsync(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StaffEvents", ReplyAction="http://tempuri.org/IWebsiteService/StaffEventsResponse")]
-        ConorFoxWebsite.WebServiceReference.Event[] StaffEvents(int userId, int userType);
+        ConorFoxWebsite.WebServiceReference.Event[] StaffEvents(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StaffEvents", ReplyAction="http://tempuri.org/IWebsiteService/StaffEventsResponse")]
-        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StaffEventsAsync(int userId, int userType);
+        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StaffEventsAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StudentsInvites", ReplyAction="http://tempuri.org/IWebsiteService/StudentsInvitesResponse")]
+        ConorFoxWebsite.WebServiceReference.StudentInvite[] StudentsInvites(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StudentsInvites", ReplyAction="http://tempuri.org/IWebsiteService/StudentsInvitesResponse")]
+        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.StudentInvite[]> StudentsInvitesAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StaffInvites", ReplyAction="http://tempuri.org/IWebsiteService/StaffInvitesResponse")]
+        ConorFoxWebsite.WebServiceReference.StaffInvite[] StaffInvites(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/StaffInvites", ReplyAction="http://tempuri.org/IWebsiteService/StaffInvitesResponse")]
+        System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.StaffInvite[]> StaffInvitesAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ConfirmStudentInvite", ReplyAction="http://tempuri.org/IWebsiteService/ConfirmStudentInviteResponse")]
+        bool ConfirmStudentInvite(int eventId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ConfirmStudentInvite", ReplyAction="http://tempuri.org/IWebsiteService/ConfirmStudentInviteResponse")]
+        System.Threading.Tasks.Task<bool> ConfirmStudentInviteAsync(int eventId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ConfirmStaffInvite", ReplyAction="http://tempuri.org/IWebsiteService/ConfirmStaffInviteResponse")]
+        bool ConfirmStaffInvite(int eventId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebsiteService/ConfirmStaffInvite", ReplyAction="http://tempuri.org/IWebsiteService/ConfirmStaffInviteResponse")]
+        System.Threading.Tasks.Task<bool> ConfirmStaffInviteAsync(int eventId, int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -762,20 +994,60 @@ namespace ConorFoxWebsite.WebServiceReference {
             return base.Channel.EventSummaryAsync(userId, userType, eventId);
         }
         
-        public ConorFoxWebsite.WebServiceReference.Event[] StudentsEvents(int userId, int userType) {
-            return base.Channel.StudentsEvents(userId, userType);
+        public ConorFoxWebsite.WebServiceReference.Event ReturnEventDetail(int eventId) {
+            return base.Channel.ReturnEventDetail(eventId);
         }
         
-        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StudentsEventsAsync(int userId, int userType) {
-            return base.Channel.StudentsEventsAsync(userId, userType);
+        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event> ReturnEventDetailAsync(int eventId) {
+            return base.Channel.ReturnEventDetailAsync(eventId);
         }
         
-        public ConorFoxWebsite.WebServiceReference.Event[] StaffEvents(int userId, int userType) {
-            return base.Channel.StaffEvents(userId, userType);
+        public ConorFoxWebsite.WebServiceReference.Event[] StudentsEvents(int userId) {
+            return base.Channel.StudentsEvents(userId);
         }
         
-        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StaffEventsAsync(int userId, int userType) {
-            return base.Channel.StaffEventsAsync(userId, userType);
+        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StudentsEventsAsync(int userId) {
+            return base.Channel.StudentsEventsAsync(userId);
+        }
+        
+        public ConorFoxWebsite.WebServiceReference.Event[] StaffEvents(int userId) {
+            return base.Channel.StaffEvents(userId);
+        }
+        
+        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.Event[]> StaffEventsAsync(int userId) {
+            return base.Channel.StaffEventsAsync(userId);
+        }
+        
+        public ConorFoxWebsite.WebServiceReference.StudentInvite[] StudentsInvites(int userId) {
+            return base.Channel.StudentsInvites(userId);
+        }
+        
+        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.StudentInvite[]> StudentsInvitesAsync(int userId) {
+            return base.Channel.StudentsInvitesAsync(userId);
+        }
+        
+        public ConorFoxWebsite.WebServiceReference.StaffInvite[] StaffInvites(int userId) {
+            return base.Channel.StaffInvites(userId);
+        }
+        
+        public System.Threading.Tasks.Task<ConorFoxWebsite.WebServiceReference.StaffInvite[]> StaffInvitesAsync(int userId) {
+            return base.Channel.StaffInvitesAsync(userId);
+        }
+        
+        public bool ConfirmStudentInvite(int eventId, int userId) {
+            return base.Channel.ConfirmStudentInvite(eventId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ConfirmStudentInviteAsync(int eventId, int userId) {
+            return base.Channel.ConfirmStudentInviteAsync(eventId, userId);
+        }
+        
+        public bool ConfirmStaffInvite(int eventId, int userId) {
+            return base.Channel.ConfirmStaffInvite(eventId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ConfirmStaffInviteAsync(int eventId, int userId) {
+            return base.Channel.ConfirmStaffInviteAsync(eventId, userId);
         }
     }
 }

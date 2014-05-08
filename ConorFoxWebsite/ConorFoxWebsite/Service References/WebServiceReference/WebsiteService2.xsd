@@ -47,18 +47,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReturnEventDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnEventDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="ReturnEventDetailResult" nillable="true" type="q4:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="StudentsEvents">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userId" type="xs:int" />
-        <xs:element minOccurs="0" name="userType" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="StudentsEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StudentsEventsResult" nillable="true" type="q4:ArrayOfEvent" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StudentsEventsResult" nillable="true" type="q5:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,14 +79,71 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userId" type="xs:int" />
-        <xs:element minOccurs="0" name="userType" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="StaffEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StaffEventsResult" nillable="true" type="q5:ArrayOfEvent" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StaffEventsResult" nillable="true" type="q6:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudentsInvites">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudentsInvitesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StudentsInvitesResult" nillable="true" type="q7:ArrayOfStudentInvite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StaffInvites">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StaffInvitesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ConorFoxProject" minOccurs="0" name="StaffInvitesResult" nillable="true" type="q8:ArrayOfStaffInvite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmStudentInvite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmStudentInviteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmStudentInviteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmStaffInvite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfirmStaffInviteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConfirmStaffInviteResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

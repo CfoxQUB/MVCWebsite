@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using ConorFoxWebsite.Models;
 using ConorFoxWebsite.WebServiceReference;
@@ -12,171 +7,112 @@ namespace ConorFoxWebsite.Controllers
 {
     public class AccountController : Controller
     {
-        private WebsiteServiceClient ws = new WebsiteServiceClient();
-        public ActionResult LogOn()
-        {
-            return View();
-        }
+        private readonly WebsiteServiceClient _wsClient = new WebsiteServiceClient();
 
-        public ActionResult Administration()
+        /// <summary>
+        /// Logon view on startup returned
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult StudentlogOn()
         {
             return View();
         }
         
-        // POST: /Account/LogOn
-
-        [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        /// <summary>
+        /// staff Logon page returned on maviagtion to view
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult StafflogOn()
         {
-            if (ModelState.IsValid)
+            return View();
+        }
+
+        /// <summary>
+        /// Submission of Logon details for student
+        /// redirect to summary view on success or
+        /// validation returned on failed
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult StudentLogOn(LogOnModel model, string returnUrl)
+        {
+            var user = _wsClient.StudentLogin(model.UserName, model.Password);
+            if (user != null)
             {
-                if (ws.StudentLogin(model.UserName, model.Password)!= null)
-                {
+                //usermodel generated from returendinformation on student who has logged in to be passed
+                //between views 
+                var userModel = new UserModel
+                
+                {   Id= user.StudentId,
+                    Forename = user.StudentForename,
+                    Surname = user.StudentSurname,
+                    Role = "Student",
+                    UserName = user.StudentEmail
+                };
+                //cookie setup
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
                         return Redirect(returnUrl);
                     }
-                    else
-                    {
-                        return RedirectToAction("Summary", "Home");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
+                    //Redirect for successful login
+                        return RedirectToAction("Summary", "Home", userModel);
+          }
+            
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //current view returned with validation due to login fail
             return View(model);
         }
+        
+        /// <summary>
+        /// Submission of Logon details for stafff
+        /// redirect to summary view on success or
+        /// validation returned on failed
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult StaffLogOn(LogOnModel model, string returnUrl)
+        {
+            var user = _wsClient.StaffLogin(model.UserName, model.Password);
+            if (user != null)
+            {
+                //usermodel generated from returendinformation on staff member who has logged in to be passed
+                //between views 
+                var userModel = new UserModel
+                {   Id = user.StaffId,
+                    Forename = user.StaffForename,
+                    Surname = user.StaffSurname,
+                    Role = "Staff",
+                    UserName = user.StaffEmail
+                };
+                //cookie setup
+                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    //current view returned with validation due to login fail
+                        return RedirectToAction("StaffSummary", "Home", userModel);
+          }
+            
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                //current view returned with validation due to login fail
+            return View();
+        }
 
-        //
-        // GET: /Account/LogOff
-
+        /// <summary>
+        /// returns logoff view
+        /// </summary>
+        /// <returns></returns>
         public ActionResult LogOff()
         {
-            FormsAuthentication.SignOut();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        //
-        // GET: /Account/Register
-
-        public ActionResult Register()
-        {
             return View();
-        }
-
-        //
-        // POST: /Account/Register
-
-        [HttpPost]
-        public ActionResult Register(RegisterNewStaffMember model)
-        {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            return View(model);
-        }
-
-
-        // GET: /Account/ChangePassword
-
-        [Authorize]
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/ChangePassword
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordModel model)
-        {
-            if (ModelState.IsValid)
-            {
-
-                // ChangePassword will throw an exception rather
-                // than return false in certain failure scenarios.
-                bool changePasswordSucceeded;
-                try
-                {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
-                }
-                catch (Exception)
-                {
-                    changePasswordSucceeded = false;
-                }
-
-                if (changePasswordSucceeded)
-                {
-                    return RedirectToAction("ChangePasswordSuccess");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        //
-        // GET: /Account/ChangePasswordSuccess
-
-        public ActionResult ChangePasswordSuccess()
-        {
-            return View();
-        }
-
-        #region Status Codes
-        private static string ErrorCodeToString(MembershipCreateStatus createStatus)
-        {
-            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
-            // a full list of status codes.
-            switch (createStatus)
-            {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
-
-                case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
-
-                case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
-
-                case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
-
-                case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
-                default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-            }
-        }
-        #endregion
+        } 
     }
 }

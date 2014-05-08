@@ -8,7 +8,7 @@
     <link href="@Url.Content("~/Content/bootstrap-theme.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
 
-    @*Standard layout for students who have logged into the system*@
+   @*staff navigation is differnet from teh student navigation*@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -17,8 +17,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li id="loginMenu" class="active">@Html.ActionLink("Log Out", "LogOff", "Account")</li>
-                        <li id="SummaryMenu"> @Html.ActionLink("Today", "Summary", "Home", Model, null)</li>
-                        <li id="timetableMenu">@Html.ActionLink("My Timetable", "Timetable", "Home", Model, null)</li>
+                        <li id="SummaryMenu"> @Html.ActionLink("Today", "StaffSummary", "Home", Model, null)</li>
+                        <li id="timetableMenu">@Html.ActionLink("My Timetable", "StaffTimetable", "Home", Model, null)</li>
                     </ul>
                 </div>
             </div>
@@ -27,9 +27,10 @@
   
     <div class="container theme-showcase" role="main">
     <div class="page-header">
-         <div>
-             @RenderBody()
-         </div>
+        <div>
+            @*Main content rendered here*@
+            @RenderBody()
+        </div>
     </div>
  </div>
 </body>

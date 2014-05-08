@@ -7,26 +7,9 @@ using System.Web.Security;
 
 namespace ConorFoxWebsite.Models
 {
-
-    public class ChangePasswordModel
-    {
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
-        public string OldPassword { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "New password")]
-        public string NewPassword { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [System.Web.Mvc.Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-    }
-
+    /// <summary>
+    /// Logon Model used in staff an student logon page
+    /// </summary>
     public class LogOnModel
     {
         [Required]
@@ -42,29 +25,11 @@ namespace ConorFoxWebsite.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email address")]
-        public string Email { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [System.Web.Mvc.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-    }
-
+   
+    /// <summary>
+    /// UserModel passed into teh views
+    /// to provide information on user
+    /// </summary>
     public class UserModel
     {
         [Required]
@@ -79,6 +44,43 @@ namespace ConorFoxWebsite.Models
 
         [Required]
         public string Role { get; set; }
+        
+        [Required]
+        public int Id { get; set; }
+
+    }
+    
+    /// <summary>
+    /// Timetable model used to populate fullcalander display
+    /// </summary>
+    public class TimetableDisplayModel
+    {
+        public string Id { get; set; }
+
+        public string Title { get; set; }
+
+        public bool AllDay { get; set; }
+
+        public string Start { get; set; }
+
+        public string End { get; set; }
+
+    }
+    
+    /// <summary>
+    /// Invites table display model 
+    /// </summary>
+    public class InvitesModel
+    {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string Start { get; set; }
+
+        public string Duration { get; set; }
+
+        public string Time { get; set; }
 
     }
 }

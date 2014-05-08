@@ -25,6 +25,12 @@
   <wsdl:message name="IWebsiteService_EventSummary_OutputMessage">
     <wsdl:part name="parameters" element="tns:EventSummaryResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebsiteService_ReturnEventDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventDetail" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_ReturnEventDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnEventDetailResponse" />
+  </wsdl:message>
   <wsdl:message name="IWebsiteService_StudentsEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:StudentsEvents" />
   </wsdl:message>
@@ -36,6 +42,30 @@
   </wsdl:message>
   <wsdl:message name="IWebsiteService_StaffEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:StaffEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StudentsInvites_InputMessage">
+    <wsdl:part name="parameters" element="tns:StudentsInvites" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StudentsInvites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StudentsInvitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffInvites_InputMessage">
+    <wsdl:part name="parameters" element="tns:StaffInvites" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_StaffInvites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StaffInvitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_ConfirmStudentInvite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmStudentInvite" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_ConfirmStudentInvite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmStudentInviteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_ConfirmStaffInvite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmStaffInvite" />
+  </wsdl:message>
+  <wsdl:message name="IWebsiteService_ConfirmStaffInvite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmStaffInviteResponse" />
   </wsdl:message>
   <wsdl:portType name="IWebsiteService">
     <wsdl:operation name="StudentLogin">
@@ -50,6 +80,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/EventSummary" message="tns:IWebsiteService_EventSummary_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/EventSummaryResponse" message="tns:IWebsiteService_EventSummary_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ReturnEventDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/ReturnEventDetail" message="tns:IWebsiteService_ReturnEventDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/ReturnEventDetailResponse" message="tns:IWebsiteService_ReturnEventDetail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="StudentsEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StudentsEvents" message="tns:IWebsiteService_StudentsEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StudentsEventsResponse" message="tns:IWebsiteService_StudentsEvents_OutputMessage" />
@@ -57,6 +91,22 @@
     <wsdl:operation name="StaffEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StaffEvents" message="tns:IWebsiteService_StaffEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StaffEventsResponse" message="tns:IWebsiteService_StaffEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentsInvites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StudentsInvites" message="tns:IWebsiteService_StudentsInvites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StudentsInvitesResponse" message="tns:IWebsiteService_StudentsInvites_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StaffInvites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/StaffInvites" message="tns:IWebsiteService_StaffInvites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/StaffInvitesResponse" message="tns:IWebsiteService_StaffInvites_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmStudentInvite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/ConfirmStudentInvite" message="tns:IWebsiteService_ConfirmStudentInvite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/ConfirmStudentInviteResponse" message="tns:IWebsiteService_ConfirmStudentInvite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmStaffInvite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebsiteService/ConfirmStaffInvite" message="tns:IWebsiteService_ConfirmStaffInvite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebsiteService/ConfirmStaffInviteResponse" message="tns:IWebsiteService_ConfirmStaffInvite_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWebsiteService" type="tns:IWebsiteService">
@@ -88,6 +138,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReturnEventDetail">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/ReturnEventDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="StudentsEvents">
       <soap:operation soapAction="http://tempuri.org/IWebsiteService/StudentsEvents" style="document" />
       <wsdl:input>
@@ -99,6 +158,42 @@
     </wsdl:operation>
     <wsdl:operation name="StaffEvents">
       <soap:operation soapAction="http://tempuri.org/IWebsiteService/StaffEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentsInvites">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StudentsInvites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StaffInvites">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/StaffInvites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmStudentInvite">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/ConfirmStudentInvite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmStaffInvite">
+      <soap:operation soapAction="http://tempuri.org/IWebsiteService/ConfirmStaffInvite" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
